@@ -8,7 +8,7 @@ A simple and customizable Pomodoro timer to boost your productivity using the Po
 - ✔️CheckMarks for each completed Pomodoro
 
 ## Demo
-<img width="625" height="548" alt="Screenshot 2025-08-01 001505" src="https://github.com/user-attachments/assets/90b77596-8128-4647-ac70-e29826f585f6" /> <img width="632" height="545" alt="Screenshot 2025-08-01 001514" src="https://github.com/user-attachments/assets/87814c85-a4ca-4a65-bff0-e968121847d0" />
+<img align="center" width="632" height="545" alt="Screenshot 2025-08-01 001514" src="https://github.com/user-attachments/assets/87814c85-a4ca-4a65-bff0-e968121847d0" />
 
 ## Installation
 
