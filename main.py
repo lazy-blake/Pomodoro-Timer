@@ -1,11 +1,13 @@
 from tkinter import Tk, Canvas, PhotoImage, Label, Button
 import math
+from PIL import Image, ImageTk
 
 # ---------------------------- CONSTANTS ------------------------------- #
 PINK = "#e2979c"
 RED = "#e7305b"
 GREEN = "#9bdeac"
 YELLOW = "#f7f5dd"
+BLACK = "#333446"
 FONT_NAME = "Courier"
 WORK_MIN = 25
 SHORT_BREAK_MIN = 5
@@ -74,11 +76,30 @@ def countdown(count):
             checkmark_label.config(text=checkmark_label["text"] + "✔")
 
 
+# ------------------------------DARK MODE-------------------------------#
+def toggle_dark_mode():
+    if window.cget("bg") == YELLOW:
+        # If the current background is yellow, switch to dark mode
+        window.config(bg=BLACK)
+        canvas.config(bg=BLACK)
+        title_label.config(bg=BLACK)
+        checkmark_label.config(bg=BLACK, fg=GREEN)
+        mode_switch_button.config(bg=BLACK, image=dark_mode_img, highlightthickness=0)
+    else:
+        window.config(bg=YELLOW)
+        canvas.config(bg=YELLOW)
+        title_label.config(bg=YELLOW)
+        checkmark_label.config(bg=YELLOW, fg=GREEN)
+        mode_switch_button.config(bg=YELLOW, image=light_mode_img, highlightthickness=0)
+
+
 # ---------------------------- UI SETUP ------------------------------- #
 
 window = Tk()
 window.title("Pomodoro")
 window.config(padx=100, pady=50, bg=YELLOW)
+window.geometry("500x400")  # adjust dimensions as needed
+
 
 # creating title of the program
 title_label = Label(
@@ -121,5 +142,32 @@ checkmark_label = Label(
     font=(FONT_NAME, 12, "bold"),
 )
 checkmark_label.grid(column=1, row=3)
+
+# creating a button to toggle dark mode
+light_mode = Image.open(
+    "C:/Users/akash/OneDrive/Documents/Python/Projects/pomodoro_timer/light_mode.png"
+)
+resized_img = light_mode.resize(
+    (65, 30), Image.Resampling.LANCZOS
+)  # Adjust these values to scale down
+light_mode_img = ImageTk.PhotoImage(resized_img)
+
+
+dark_mode = Image.open(
+    "C:/Users/akash/OneDrive/Documents/Python/Projects/pomodoro_timer/dark_mode_2.png"
+)
+resized_img = dark_mode.resize(
+    (65, 30), Image.Resampling.LANCZOS
+)  # Adjust these values to scale down
+dark_mode_img = ImageTk.PhotoImage(resized_img)
+
+mode_switch_button = Button(
+    image=light_mode_img,
+    bd=0,
+    command=toggle_dark_mode,
+    bg=YELLOW,
+    highlightthickness=0,
+)
+mode_switch_button.grid(column=3, row=0)
 
 window.mainloop()
