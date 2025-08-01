@@ -115,7 +115,7 @@ canvas = Canvas(width=200, height=224, bg=YELLOW, highlightthickness=0)
 
 # to get hold of the image file, we need to use PhotoImage class
 canvas_image = PhotoImage(
-    file="C:/Users/akash/OneDrive/Documents/Python/Projects/pomodoro_timer/tomato.png"
+    file="C:/Users/<YourTomatoImageFilePath>/tomato.png"
 )
 
 # to create an image at the center of the canvas with x,y coordinates
